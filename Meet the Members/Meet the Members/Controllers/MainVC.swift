@@ -19,10 +19,10 @@ class MainVC: UIViewController {
     
     let imageView: UIImageView = {
         let view = UIImageView()
-        
         // MARK: >> Your Code Here <<
-    
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFit
         
         return view
     }()
@@ -52,7 +52,7 @@ class MainVC: UIViewController {
     // MARK: >> Your Code Here <<
     
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         // MARK: STEP 6: Adding Subviews and Constraints
         // Action Items:
@@ -68,8 +68,51 @@ class MainVC: UIViewController {
         // to go back.
         //
         // modalPresentationStyle = .fullScreen
-        
+    
         // MARK: >> Your Code Here <<
+        view.addSubview(imageView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:20),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-20),
+            imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -260)
+            ])
+        
+        view.addSubview(buttons[0])
+        NSLayoutConstraint.activate([
+            // MARK: >> Your Code Here <<
+            buttons[0].leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            buttons[0].trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -190),
+            buttons[0].bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -150),
+        ])
+        
+        view.addSubview(buttons[1])
+        NSLayoutConstraint.activate([
+            // MARK: >> Your Code Here <<
+            buttons[1].leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 190),
+            buttons[1].trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            buttons[1].bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -150),
+        ])
+        
+        view.addSubview(buttons[2])
+        NSLayoutConstraint.activate([
+            // MARK: >> Your Code Here <<
+            buttons[2].leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            buttons[2].trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -190),
+            buttons[2].bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+        ])
+        
+        view.addSubview(buttons[3])
+        NSLayoutConstraint.activate([
+            // MARK: >> Your Code Here <<
+            buttons[3].leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 190),
+            buttons[3].trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            buttons[3].bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+        ])
+        
+        
         
         getNextQuestion()
         
@@ -102,6 +145,11 @@ class MainVC: UIViewController {
         //   the question instance
         
         // MARK: >> Your Code Here <<
+        let nextQuestion: QuestionProvider.Question = QuestionProvider.shared.nextQuestion()!
+        imageView.image = nextQuestion.image
+        for i in 0..<4 {
+            buttons[i].setTitle(nextQuestion.choices[i], for: .normal)
+        }
     }
     
     // MARK: STEP 8: Buttons and Timer Callback

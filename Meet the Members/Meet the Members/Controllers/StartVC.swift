@@ -42,7 +42,7 @@ class StartVC: UIViewController {
     private let startButton: UIButton = {
         let button = UIButton()
         
-        button.setTitle("Start", for: .normal)
+        button.setTitle("START", for: .normal)
         
         button.setTitleColor(.blue, for: .normal)
         
@@ -58,6 +58,14 @@ class StartVC: UIViewController {
         
         // MARK: >> Your Code Here <<
         
+        button.backgroundColor = .lightGray
+        button.layer.shadowColor = UIColor(red: 100, green: 0, blue: 200, alpha: 0.5).cgColor
+        button.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        button.layer.shadowOpacity = 1.0
+        button.layer.shadowRadius = 0.0
+        button.layer.masksToBounds = false
+        button.layer.cornerRadius = 4.0
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -65,7 +73,7 @@ class StartVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white // == UIColor(expected type).white
+        view.backgroundColor = .black // == UIColor(expected type).white
         
         // MARK: STEP 2: Subviews and Constraints
         // Action Items:
@@ -112,9 +120,13 @@ class StartVC: UIViewController {
         ])
         
         // MARK: >> Your Code Here <<
+        view.addSubview(startButton)
         
         NSLayoutConstraint.activate([
             // MARK: >> Your Code Here <<
+            startButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
         ])
         
         
