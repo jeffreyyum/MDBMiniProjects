@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+class Stats {
+    var score = 0
+    var streak = 0
+    var bestStreak = 0
+    var recentCorrect = 0
+    var allAnswers: [Bool] = []
+}
+
 class QuestionProvider {
     
     struct Question {

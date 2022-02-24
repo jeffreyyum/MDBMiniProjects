@@ -65,15 +65,25 @@ class StartVC: UIViewController {
         button.layer.shadowRadius = 0.0
         button.layer.masksToBounds = false
         button.layer.cornerRadius = 4.0
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
+    
+    let image: UIImageView = {
+            let view = UIImageView()
+            view.image = UIImage(named: "mdbcoverimage.jpg")
+            view.contentMode = UIView.ContentMode.scaleAspectFit
+            view.translatesAutoresizingMaskIntoConstraints = false
+            
+            return view
+        }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black // == UIColor(expected type).white
+        
+        
+        view.backgroundColor = .white // == UIColor(expected type).white
         
         // MARK: STEP 2: Subviews and Constraints
         // Action Items:
@@ -124,11 +134,18 @@ class StartVC: UIViewController {
         
         NSLayoutConstraint.activate([
             // MARK: >> Your Code Here <<
-            startButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50)
+            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200),
         ])
         
+        view.addSubview(image)
+
+        NSLayoutConstraint.activate([
+            image.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            image.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -50),
+        ])
         
         // MARK: STEP 3: Adding Callbacks
         // Action Item:

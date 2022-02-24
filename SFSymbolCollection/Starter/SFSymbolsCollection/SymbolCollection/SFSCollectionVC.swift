@@ -10,7 +10,13 @@ import UIKit
 class SFSCollectionVC: UIViewController {
     
     // TODO: Collection View
-    let collectionView: UICollectionView! = nil
+    let collectionView: UICollectionView! = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 30
+        layout.minimumLineSpacing = 30
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout:layout)
+        return cv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,10 @@ class SFSCollectionVC: UIViewController {
         
         // TODO: Delegate
     }
+}
+
+extension SFCollectionVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionVIew, numberofItemsinSection section : Int) -> 1
 }
 
 // TODO: Data Source
