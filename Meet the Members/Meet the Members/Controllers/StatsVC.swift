@@ -165,8 +165,7 @@ class StatsVC: UIViewController {
 
         
         backButton.addTarget(self, action: #selector(tapBackHandler(_:)), for: .touchUpInside)
-        
-        // MARK: >> Your Code Here <<
+    
     }
     @objc func tapBackHandler(_ action: UIAction) {
         
