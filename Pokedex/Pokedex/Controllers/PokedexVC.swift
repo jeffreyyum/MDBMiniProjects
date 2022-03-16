@@ -159,7 +159,6 @@ extension PokedexVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             //fltering by name
-        
             currPokemons = pokemons.filter({ p in
                 p.name.contains(searchText)
             })
@@ -178,5 +177,4 @@ extension PokedexVC: UISearchBarDelegate {
         collectionView.reloadData()
     }
 }
-
 
