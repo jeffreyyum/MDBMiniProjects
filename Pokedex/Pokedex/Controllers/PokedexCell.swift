@@ -36,7 +36,7 @@ class PokedexCell: UICollectionViewCell {
     }
     
     
-    private let imageView: UIImageView = {
+    public let imageView: UIImageView = {
         let iv = UIImageView()
         iv.tintColor = .black
         iv.contentMode = .scaleAspectFit
@@ -72,7 +72,6 @@ class PokedexCell: UICollectionViewCell {
         
         backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
         contentView.addSubview(imageView)
         contentView.addSubview(titleView)
         contentView.addSubview(idView)
@@ -84,7 +83,7 @@ class PokedexCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: titleView.topAnchor, constant: -5),
-            imageView.heightAnchor.constraint(equalToConstant: 60),
+            imageView.heightAnchor.constraint(equalToConstant: 90),
 
             titleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             titleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
