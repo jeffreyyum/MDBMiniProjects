@@ -14,7 +14,7 @@ class SFSCollectionCell: UICollectionViewCell {
     var symbol: SFSymbol? {
         didSet {
             imageView.image = symbol?.image
-            titleView.text = symbol?.name
+            titleView.text = symbol?.name 
         }
     }
     
