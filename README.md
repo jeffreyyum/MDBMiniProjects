@@ -1,5 +1,5 @@
 # MDB Project Portfolio
-_[Your name here]_
+Jeffrey Yum
 
 ### Project 1: Meet the Member
 
