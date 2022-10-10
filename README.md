@@ -6,5 +6,3 @@ Jeffrey Yum
 ### Project 2: Pokedex
 
 ### Project 3: MDB Social
-
-### Project 4: WeatherDB
